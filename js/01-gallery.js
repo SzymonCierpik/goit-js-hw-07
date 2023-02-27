@@ -21,14 +21,19 @@ function buildGallery(items) {
 
 buildGallery(galleryItems);
 
-const clickGalleryItname 
+const gallery = document.querySelector(".gallery");
 
-const instance = basicLightbox.create(`
-    <div class="modal">
-   <a class="gallery__link" href="${original}">
-          <img class="gallery__image" src="${preview}" data-source="${original}" alt="${description}" />
-        </a>
-    </div>
-`);
+gallery.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.nodeName !== "IMG") {
+    return;
+  }
 
-instance.show();
+  const instance = basicLightbox
+    .create(
+      `
+		<img width="1400" height="900" src="${e.target.getAttribute("data-source")}">
+	`
+    )
+    .show();
+});
