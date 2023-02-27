@@ -21,16 +21,7 @@ function buildGallery(items) {
 
 buildGallery(galleryItems);
 
-const galleryOne = document.querySelector(".gallery");
-
-galleryOne.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.target.nodeName !== "IMG") {
-    return;
-  }
-
-  const gallery = new SimpleLightbox(`.gallery a`, {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
+const gallery = new SimpleLightbox(`.gallery a`, {
+  captionsData: "alt",
+  captionDelay: 250,
 });
